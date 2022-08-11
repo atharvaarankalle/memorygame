@@ -38,6 +38,35 @@ class _GameScreenState extends State<GameScreen> {
       body: Column(
         children: [
           const Header("Memory Game"),
+          Expanded(
+            child: Center(
+              child: AspectRatio(
+                aspectRatio: 9 / 10,
+                child: GridView.builder(
+                padding: EdgeInsets.all(16),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, crossAxisSpacing: 16, mainAxisSpacing: 16,),
+                itemBuilder: ((context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        turns++;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF99B2DD),
+                        borderRadius: BorderRadius.circular(12),
+                        image: DecorationImage(
+                          image: AssetImage("assets/images/hidden.png"),
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+                itemCount: 16,
+                        ),
+              ),
+            ),),
           Row(
             // mainAxisAlignment: MainAxisAlignment.spaceAround,
             // crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,6 +76,6 @@ class _GameScreenState extends State<GameScreen> {
             ],
           ),
         ],
-      ), backgroundColor: Colors.blue[300]);
+      ), backgroundColor: Colors.blue[900]);
   }
 }
