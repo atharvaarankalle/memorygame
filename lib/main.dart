@@ -37,7 +37,7 @@ class GameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Header("Mem Game"), backgroundColor: Colors.blue[300],
+      body: Header("Memory Game"), backgroundColor: Colors.blue[300],
       );
   }
 }
