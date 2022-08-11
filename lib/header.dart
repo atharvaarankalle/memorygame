@@ -9,6 +9,6 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(titleOfGame, style: TextStyle(color: Colors.white, fontSize: 40, fontFamily: 'Pacifico'));
+    return Center(child: Text(titleOfGame, style: TextStyle(color: Colors.white, fontSize: 40, fontFamily: 'Pacifico')));
   }
 }
