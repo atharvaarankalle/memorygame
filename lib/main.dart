@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:memory_game/widgets/custom_card.dart';
 
-import 'header.dart';
+import 'widgets/header.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,30 +15,38 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
       home: const GameScreen(),
     );
   }
 }
 
-class GameScreen extends StatelessWidget {
+class GameScreen extends StatefulWidget {
   const GameScreen({Key? key}) : super(key: key);
+
+  @override
+  State<GameScreen> createState() => _GameScreenState();
+}
+
+class _GameScreenState extends State<GameScreen> {
+
+  int turns = 0;
+  int pairsFound = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Header("Memory Game"), backgroundColor: Colors.blue[300],
-      );
+      body: Column(
+        children: [
+          const Header("Memory Game"),
+          Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomCard("Turns", "$turns"),
+              CustomCard("Pairs Found", "$pairsFound"),
+            ],
+          ),
+        ],
+      ), backgroundColor: Colors.blue[300]);
   }
 }
